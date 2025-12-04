@@ -1,6 +1,6 @@
 <x-app-layout>
     {{-- Header bar principal --}}
-        <header class="sticky top-0 z-30 bg-white border-b border-gray-200">
+        <header class="bg-white border-b border-gray-200">
             <div class="px-8 py-4 flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <div 
@@ -99,13 +99,15 @@
                 </div>
 
                 {{-- Gráfico de pizza - Status das filiações --}}
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col">
                     <div class="mb-4">
                         <h2 class="text-base font-semibold text-gray-900">Status das Filiações</h2>
                         <p class="text-sm text-gray-600">Distribuição geral</p>
                     </div>
-                    <div class="h-72">
-                        <canvas id="statusChart"></canvas>
+                    <div class="flex-1 flex items-center justify-center">
+                        <div class="w-full max-w-xs h-72">
+                            <canvas id="statusChart"></canvas>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -174,6 +176,17 @@
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
+                        animation: {
+                            duration: 1200,
+                            easing: 'easeOutCubic',
+                        },
+                        animations: {
+                            y: {
+                                from: 0,
+                                duration: 1200,
+                                easing: 'easeOutCubic',
+                            },
+                        },
                         plugins: {
                             legend: {
                                 display: false,
@@ -222,6 +235,7 @@
                     data: statusData,
                     options: {
                         responsive: true,
+                        maintainAspectRatio: false,
                         plugins: {
                             legend: {
                                 position: 'bottom',
@@ -232,6 +246,12 @@
                             },
                         },
                         cutout: '60%',
+                        animation: {
+                            animateRotate: true,
+                            animateScale: true,
+                            duration: 900,
+                            easing: 'easeOutCubic',
+                        },
                     },
                 });
             }

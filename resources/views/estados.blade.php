@@ -1,5 +1,5 @@
 <x-app-layout>
-    <header class="sticky top-0 z-30 bg-white border-b border-gray-200">
+    <header class="bg-white border-b border-gray-200">
         <div class="px-8 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
                 <h1 class="text-lg font-semibold text-gray-900">Estados</h1>

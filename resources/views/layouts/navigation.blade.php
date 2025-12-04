@@ -1,8 +1,8 @@
-<nav x-data="{ open: true }" class="flex">
+<nav x-data="{ open: true }" class="flex h-screen bg-gray-50">
 
     {{-- Sidebar --}}
     <aside 
-        class="bg-white border-r border-gray-200 h-screen fixed top-0 left-0 transition-all duration-300 flex flex-col shadow-sm"
+        class="bg-white border-r border-gray-200 h-full transition-all duration-300 flex flex-col shadow-sm"
         :class="open ? 'w-64' : 'w-20'"
     >
         <div class="flex flex-col h-full">
@@ -81,11 +81,13 @@
                 </a>
 
                 {{-- Municípios --}}
-                <a href="#" 
-                   class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all hover:bg-gray-50"
-                   :class="open ? '' : 'justify-center'"
-                   style="color: #6B7280;"
-                >
+                <a href="{{ route('municipios') }}" 
+                   @class([
+                       'flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all',
+                       'bg-white shadow-md shadow-orange-100 text-[var(--blaze-orange)]' => request()->routeIs('municipios'),
+                       'hover:bg-gray-50 text-gray-600' => !request()->routeIs('municipios'),
+                   ])
+                   :class="open ? '' : 'justify-center'">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M3 21V9l7-4 7 4v12" />
                         <path d="M9 21V12h6v9" />
@@ -172,11 +174,10 @@
     </aside>
 
     {{-- Conteúdo principal ajustado pela sidebar --}}
-    <div class="flex-1 ml-20 sm:ml-64 transition-all duration-300 bg-gray-50 min-h-screen" 
-         :class="open ? 'ml-64' : 'ml-20'">
-
-        {{ $slot }}
-
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <div class="flex-1 overflow-auto">
+            {{ $slot }}
+        </div>
     </div>
 
 </nav>
