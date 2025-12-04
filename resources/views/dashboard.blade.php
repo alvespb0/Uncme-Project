@@ -153,7 +153,6 @@
             </section>
         </div>
 
-    {{-- Gráficos usando Chart.js (dados estáticos iguais ao dashboard do Figma/TS) --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -166,7 +165,7 @@
                         data: [320, 285, 198, 165, 142, 128],
                         backgroundColor: 'rgba(255, 105, 6, 0.9)',
                         borderRadius: 10,
-                        barThickness: 48,
+                        barThickness: 100,
                     }],
                 };
 
@@ -182,7 +181,7 @@
                         },
                         animations: {
                             y: {
-                                from: 0,
+                                from: 1000,
                                 duration: 1200,
                                 easing: 'easeOutCubic',
                             },

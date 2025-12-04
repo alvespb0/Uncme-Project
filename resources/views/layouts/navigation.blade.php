@@ -96,10 +96,12 @@
                 </a>
 
                 {{-- Usuários --}}
-                <a href="#" 
-                   class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all hover:bg-gray-50"
-                   :class="open ? '' : 'justify-center'"
-                   style="color: #6B7280;"
+                <a href="{{ route('usuarios' )}}" 
+                    @class([
+                       'flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all',
+                       'bg-white shadow-md shadow-orange-100 text-[var(--blaze-orange)]' => request()->routeIs('usuarios'),
+                       'hover:bg-gray-50 text-gray-600' => !request()->routeIs('usuarios'),
+                   ])
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4z" />

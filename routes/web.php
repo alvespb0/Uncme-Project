@@ -19,6 +19,11 @@ Route::get('/municipios', function () {
     return view('municipios');
 })->middleware(['auth', 'verified'])->name('municipios');
 
+Route::get('/usuarios', function () {
+    return view('usuarios');
+})->middleware(['auth', 'verified'])->name('usuarios');
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

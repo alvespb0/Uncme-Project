@@ -3,8 +3,8 @@
     <header class="bg-white border-b border-gray-200">
         <div class="px-8 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-                <h1 class="text-lg font-semibold text-gray-900">Municípios</h1>
-                <p class="text-sm text-gray-600 mt-1">Lista completa de municípios filiados</p>
+                <h1 class="text-lg font-semibold text-gray-900">Usuários</h1>
+                <p class="text-sm text-gray-600 mt-1">Lista completa de usuários cadastrados</p>
             </div>
             <button
                 class="px-4 py-2 rounded-lg text-white flex items-center gap-2 hover:shadow-md transition-all"
@@ -22,17 +22,10 @@
 
     <div class="px-4 sm:px-6 lg:px-8 py-6 lg:py-8 space-y-6">
         @php
-            $municipios = [
-                ['id' => 1, 'nome' => 'São Paulo', 'estado' => 'SP', 'populacao' => 12396372, 'dataFiliacao' => '15/01/2024', 'status' => 'ativo', 'responsavel' => 'Ricardo Nunes'],
-                ['id' => 2, 'nome' => 'Rio de Janeiro', 'estado' => 'RJ', 'populacao' => 6775561, 'dataFiliacao' => '10/02/2024', 'status' => 'ativo', 'responsavel' => 'Eduardo Paes'],
-                ['id' => 3, 'nome' => 'Belo Horizonte', 'estado' => 'MG', 'populacao' => 2530701, 'dataFiliacao' => '20/01/2024', 'status' => 'ativo', 'responsavel' => 'Fuad Noman'],
-                ['id' => 4, 'nome' => 'Salvador', 'estado' => 'BA', 'populacao' => 2900319, 'dataFiliacao' => '05/03/2024', 'status' => 'pendente', 'responsavel' => 'Bruno Reis'],
-                ['id' => 5, 'nome' => 'Fortaleza', 'estado' => 'CE', 'populacao' => 2703391, 'dataFiliacao' => '18/02/2024', 'status' => 'ativo', 'responsavel' => 'José Sarto'],
-                ['id' => 6, 'nome' => 'Curitiba', 'estado' => 'PR', 'populacao' => 1963726, 'dataFiliacao' => '12/01/2024', 'status' => 'ativo', 'responsavel' => 'Rafael Greca'],
-                ['id' => 7, 'nome' => 'Recife', 'estado' => 'PE', 'populacao' => 1661017, 'dataFiliacao' => '25/02/2024', 'status' => 'ativo', 'responsavel' => 'João Campos'],
-                ['id' => 8, 'nome' => 'Manaus', 'estado' => 'AM', 'populacao' => 2255903, 'dataFiliacao' => '08/03/2024', 'status' => 'pendente', 'responsavel' => 'David Almeida'],
-                ['id' => 9, 'nome' => 'Porto Alegre', 'estado' => 'RS', 'populacao' => 1492530, 'dataFiliacao' => '30/01/2024', 'status' => 'ativo', 'responsavel' => 'Sebastião Melo'],
-                ['id' => 10, 'nome' => 'Brasília', 'estado' => 'DF', 'populacao' => 3094325, 'dataFiliacao' => '22/02/2024', 'status' => 'inativo', 'responsavel' => 'Ibaneis Rocha'],
+            $usuarios = [
+                ['id' => 1, 'nome' => 'Zézinho', 'estado' => 'SP', 'cidade' => 'São Paulo', 'acesso' => 'Nacional', 'status' => 'ativo'],
+                ['id' => 2, 'nome' => 'Luisinho', 'estado' => 'RJ', 'cidade' => 'Rio de Janeiro', 'acesso' => 'Estadual', 'status' => 'ativo'],
+                ['id' => 3, 'nome' => 'Huguinho', 'estado' => 'MG', 'cidade' => 'Belo Horizonte', 'acesso' => 'Municipal', 'status' => 'inativo'],
             ];
 
             $statusStyles = [
@@ -85,19 +78,16 @@
                     <thead class="bg-gray-50 border-b border-gray-200">
                         <tr>
                             <th class="px-6 py-4 text-left text-xs text-gray-600 uppercase tracking-wider">
+                                Usuário
+                            </th>
+                            <th class="px-6 py-4 text-left text-xs text-gray-600 uppercase tracking-wider">
                                 Município
                             </th>
                             <th class="px-6 py-4 text-left text-xs text-gray-600 uppercase tracking-wider">
-                                Estado
+                                UF
                             </th>
                             <th class="px-6 py-4 text-left text-xs text-gray-600 uppercase tracking-wider">
-                                População
-                            </th>
-                            <th class="px-6 py-4 text-left text-xs text-gray-600 uppercase tracking-wider">
-                                Data Filiação
-                            </th>
-                            <th class="px-6 py-4 text-left text-xs text-gray-600 uppercase tracking-wider">
-                                Responsável
+                                Acesso
                             </th>
                             <th class="px-6 py-4 text-left text-xs text-gray-600 uppercase tracking-wider">
                                 Status
@@ -105,36 +95,23 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
-                        @foreach ($municipios as $municipio)
+                        @foreach ($usuarios as $usuario)
                             @php
-                                $status = $statusStyles[$municipio['status']];
+                                $status = $statusStyles[$usuario['status']];
                             @endphp
                             <tr class="hover:bg-gray-50 transition-colors cursor-pointer">
                                 <td class="px-6 py-4">
-                                    <div class="flex items-center gap-3">
-                                        <div
-                                            class="w-10 h-10 rounded-lg flex items-center justify-center"
-                                            style="background-color: var(--romantic);"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z" />
-                                                <circle cx="12" cy="11" r="2.5" />
-                                            </svg>
-                                        </div>
-                                        <span class="text-gray-900">{{ $municipio['nome'] }}</span>
+                                        <span class="text-gray-900">{{ $usuario['nome'] }}</span>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span class="text-gray-600">{{ $municipio['estado'] }}</span>
+                                    <span class="text-gray-600">{{ $usuario['cidade'] }}</span>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span class="text-gray-600">{{ number_format($municipio['populacao'], 0, ',', '.') }}</span>
+                                    <span class="text-gray-600">{{ $usuario['estado'] }}</span>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <span class="text-gray-600">{{ $municipio['dataFiliacao'] }}</span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="text-gray-600">{{ $municipio['responsavel'] }}</span>
+                                    <span class="text-gray-600">{{ $usuario['acesso'] }}</span>
                                 </td>
                                 <td class="px-6 py-4">
                                     <span
@@ -153,7 +130,7 @@
             {{-- Paginação fake para o MVP --}}
             <div class="px-6 py-4 border-top border-gray-200 flex items-center justify-between">
                 <p class="text-sm text-gray-600">
-                    Mostrando <span>{{ count($municipios) }}</span> de <span>{{ count($municipios) }}</span> municípios
+                    Mostrando <span>{{ count($usuarios) }}</span> de <span>{{ count($usuarios) }}</span> usuários
                 </p>
                 <div class="flex gap-2">
                     <button
