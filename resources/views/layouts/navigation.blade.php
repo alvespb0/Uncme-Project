@@ -73,7 +73,7 @@
                        'hover:bg-gray-50 text-gray-600' => !request()->routeIs('estados'),
                    ])
                    :class="open ? '' : 'justify-center'">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M3 9.5L12 4l9 5.5-9 5.5-9-5.5z" />
                         <path d="M3 14.5L12 20l9-5.5" />
                     </svg>
@@ -88,7 +88,7 @@
                        'hover:bg-gray-50 text-gray-600' => !request()->routeIs('municipios'),
                    ])
                    :class="open ? '' : 'justify-center'">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M3 21V9l7-4 7 4v12" />
                         <path d="M9 21V12h6v9" />
                     </svg>
@@ -102,8 +102,8 @@
                        'bg-white shadow-md shadow-orange-100 text-[var(--blaze-orange)]' => request()->routeIs('usuarios'),
                        'hover:bg-gray-50 text-gray-600' => !request()->routeIs('usuarios'),
                    ])
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                :class="open ? '' : 'justify-center'">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4z" />
                         <path d="M3 21a9 9 0 0 1 18 0" />
                     </svg>

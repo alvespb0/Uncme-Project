@@ -2,21 +2,41 @@
     {{-- Header --}}
     <header class="bg-white border-b border-gray-200">
         <div class="px-8 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            
+            {{-- Título --}}
             <div>
                 <h1 class="text-lg font-semibold text-gray-900">Usuários</h1>
                 <p class="text-sm text-gray-600 mt-1">Lista completa de usuários cadastrados</p>
             </div>
-            <button
-                class="px-4 py-2 rounded-lg text-white flex items-center gap-2 hover:shadow-md transition-all"
-                style="background: linear-gradient(135deg, var(--green-haze), var(--downy));"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <path d="M7 10l5 5 5-5" />
-                    <path d="M12 15V3" />
-                </svg>
-                <span>Exportar</span>
-            </button>
+
+            {{-- Botões lado a lado --}}
+            <div class="flex items-center gap-3">
+                
+                <a href=""
+                    class="px-4 py-2 rounded-lg bg-white shadow-md shadow-orange-100 text-[var(--blaze-orange)] 
+                           flex items-center gap-2 hover:shadow-lg transition-all border border-orange-200"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M5 12h14" />
+                    </svg>
+                    <span>Novo Usuário</span>
+                </a>
+
+                <button
+                    class="px-4 py-2 rounded-lg text-white flex items-center gap-2 hover:shadow-md transition-all"
+                    style="background: linear-gradient(135deg, var(--green-haze), var(--downy));"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <path d="M7 10l5 5 5-5" />
+                        <path d="M12 15V3" />
+                    </svg>
+                    <span>Exportar</span>
+                </button>
+
+            </div>
+
         </div>
     </header>
 
