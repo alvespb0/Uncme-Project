@@ -23,6 +23,10 @@ Route::get('/usuarios', function () {
     return view('usuarios');
 })->middleware(['auth', 'verified'])->name('usuarios');
 
+Route::get('/usuarios/novo', function () {
+    return view('/users/create');
+})->middleware(['auth', 'verified'])->name('usuarios');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
